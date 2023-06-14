@@ -109,4 +109,15 @@ Plus all Astro benefits (e.g., bring your own UI components).
 
 4. Deployment
 
-Before we explore deploying the production build to GitHub Pages, let's commit the current version.
+Before we explore deploying the production build to GitHub Pages, let's commit the current version. **Done!**
+
+Now, let's [deploy the Astro Site to GitHub Pages](https://docs.astro.build/en/guides/deploy/github/). Astro provides an official `withastro/action` that should make this easy.
+
+ 1. Set `site` and `base` options in `astro.config.js`
+ 2. Create `.github/workflows/deploy.yml` and copy [the provided workflow](https://docs.astro.build/en/guides/deploy/github/).
+ 3. Since we have our site source in the `website/` subfolder (vs. root of repo), uncomment the `with` section of the install steps in workflow and set the `path` to `./website`
+ 4. Go to the GitHub repo's [Settings > Pages](https://github.com/30DaysOf/astro-starlight-ghpages/settings/pages) configuration. Choose `GitHub Actions` as the Source of your site. 
+ 
+**Commit the changes in your code to GitHub**. You should see the deploy action run. If successful, the GitHub Pages endpoint should show the deployed site.
+
+
