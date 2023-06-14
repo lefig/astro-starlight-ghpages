@@ -13,7 +13,7 @@ export default defineConfig({
     starlight({
       title: 'My Docs',
       social: {
-        github: 'https://github.com/withastro/starlight',
+        github: 'https://github.com/30DaysOf/astro-starlight-ghpages',
       },
       sidebar: [
         {

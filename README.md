@@ -118,10 +118,10 @@ Now, let's [deploy the Astro Site to GitHub Pages](https://docs.astro.build/en/g
  3. Since we have our site source in the `website/` subfolder (vs. root of repo), uncomment the `with` section of the install steps in workflow and set the `path` to `./website`
  4. Go to the GitHub repo's [Settings > Pages](https://github.com/30DaysOf/astro-starlight-ghpages/settings/pages) configuration. Choose `GitHub Actions` as the Source of your site. 
  
-**Commit the changes in your code to GitHub**. You should see the deploy action run. If successful, the GitHub Pages endpoint should show the deployed site. 
+**Commit the changes in your code to GitHub**. You should see the deploy action run. If successful, the GitHub Pages endpoint should show the deployed site.  It's LIVE! [https://30daysof.github.io/astro-starlight-ghpages/](https://30daysof.github.io/astro-starlight-ghpages/)!!
 
-> It's LIVE! [https://30daysof.github.io/astro-starlight-ghpages/](https://30daysof.github.io/astro-starlight-ghpages/)!!
 
-We can now start focusing on modifications to content.
+> Issue: Hero links not resolving base path correctly
 
+The "Example Guide" button on the landing page is mapped to "/guides/example/" but when clicked, does not take base prefix (repo path) into account, resulting in a 404. The same route used from the sidebar works just fine. **I am assuming this has to do with the difference in how links are resolved in frontmatter vs. markdown** _Issue raised in community chat. Waiting for response_.
 
