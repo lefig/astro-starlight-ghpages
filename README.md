@@ -48,7 +48,7 @@ Plus all Astro benefits (e.g., bring your own UI components).
     $ npm create astro@latest -- --template starlight
     ```
 
-    As part of setup, you define the destination folder (`website`), install dependencies and configure Typescript, git usage.
+    As part of setup, you define the destination folder (`website`), install dependencies and configure Typescript, git usage if needed. You can also disable telemetry capture using `npx astro telemetry disable` at this time.
 
 3. Preview the default Starlight site.
 

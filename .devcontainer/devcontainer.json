@@ -1,0 +1,18 @@
+{
+	"name": "30DaysOf Astro Template",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "",
+	"postCreateCommand": "",
+	"customizations": {
+	  "codespaces": {
+		"openFiles": []
+	  },
+	  "vscode": {
+		"extensions": [
+		  "astro-build.astro-vscode",
+		]
+	  }
+	}
+}
