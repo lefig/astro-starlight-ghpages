@@ -33,6 +33,7 @@ Plus all Astro benefits (e.g., bring your own UI components).
  - [Get Started](https://starlight.astro.build/getting-started/)
 
 ---
+
 ## 3. Quickstart 
 
 1. Verify you have Node.js installed. I use `nvm` and default to the LTS version for Node.js.
@@ -81,7 +82,7 @@ Plus all Astro benefits (e.g., bring your own UI components).
 
     ![Starlight Search Feature, Disabled](./static/05-default-search.png)
 
-4. Alright, let's try to build the **production** version of the site locally.
+5. Alright, let's try to build the **production** version of the site locally.
 
     ```bash
     $ cd website
@@ -92,7 +93,7 @@ Plus all Astro benefits (e.g., bring your own UI components).
     08:53:44 PM [build] 4 page(s) built in 4.61s
     08:53:44 PM [build] Complete!
     ```
-5. You'll notice this builds the production version in the `dist` folder. Let's preview it.
+6. You'll notice this builds the production version in the `dist` folder. Let's preview it.
 
     ```bash
     $ npm run preview
@@ -107,7 +108,7 @@ Plus all Astro benefits (e.g., bring your own UI components).
 
 ---
 
-4. Deployment
+## 4. Deployment
 
 Before we explore deploying the production build to GitHub Pages, let's commit the current version. **Done!**
 
@@ -125,3 +126,74 @@ Now, let's [deploy the Astro Site to GitHub Pages](https://docs.astro.build/en/g
 
 The "Example Guide" button on the landing page is mapped to "/guides/example/" but when clicked, does not take base prefix (repo path) into account, resulting in a 404. The same route used from the sidebar works just fine. **I am assuming this has to do with the difference in how links are resolved in frontmatter vs. markdown** _Issue raised in community chat. Waiting for response_.
 
+---
+
+## 7. Adding Blog
+
+The [Starlight Blog](https://starlight-blog-docs.vercel.app/getting-started/) plugin from the community adds the blog feature to the default Starlight theme. Let's try it out.
+
+1. Install the plugin.
+
+    ```bash
+    $ npm install starlight-blog --save
+    ```
+2. Add the plugin to `astro.config.mjs` and configure it.
+
+    ```javascript
+    import starlight from '@astrojs/starlight'
+    import { defineConfig } from 'astro/config'
+    import starlightBlog from 'starlight-blog'
+
+    export default defineConfig({
+      integrations: [
+        starlight({
+          plugins: [starlightBlog()],
+          title: 'My Docs',
+        }),
+      ],
+    })
+    ```
+3. Customize [configuration](https://starlight-blog-docs.vercel.app/configuration) if needed.
+
+    ```javascript
+    import starlight from '@astrojs/starlight'
+    import { defineConfig } from 'astro/config'
+    import starlightBlog from 'starlight-blog'
+
+    export default defineConfig({
+      integrations: [
+        starlight({
+          plugins: [
+            starlightBlog({
+              title: "Blog",
+              postCount: 7,
+              recentPostCount: 1,
+              authors: {
+                nitya: {
+                  name: "Nitya",
+                  picture: "https://github.com/nitya.png",
+                  url: "https://github.com/nitya",
+                  title: "AI, Art & Advocacy @Microsoft",
+                }
+              },
+            }),
+          ],
+          title: 'My Docs',
+        }),
+      ],
+    })
+    ```
+  4. Extend the frontmatter schema
+
+  ```javascript
+  import { defineCollection } from 'astro:content';
+  import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
+  import { blogSchema } from 'starlight-blog/schema'
+
+  export const collections = {
+    docs: defineCollection({ schema: docsSchema({ extend: blogSchema() }) }),
+    i18n: defineCollection({ type: 'data', schema: i18nSchema() }),
+  };
+  ```
+
+  5. Now write your first blog post under `src/content/docs/blog` and see it show up in sidebar of blog. Update the link paths if needed.

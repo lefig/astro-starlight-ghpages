@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightBlog from 'starlight-blog'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,10 @@ export default defineConfig({
 
 	integrations: [
 		starlight({
+
+			// Add plugins
+			plugins: [starlightBlog()],
+
 			title: '30Days Template',
 			social: {
 				github: 'https://github.com/30DaysOf/astro-starlight-ghpages',
