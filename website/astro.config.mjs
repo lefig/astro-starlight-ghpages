@@ -14,7 +14,9 @@ export default defineConfig({
 		starlight({
 
 			// Add plugins
+			// FIXME: Plugin route not working. Debug later.
 			plugins: [
+				/*
 				starlightBlog({
 				  title: "Blog",
 				  postCount: 7,
@@ -28,6 +30,7 @@ export default defineConfig({
 					}
 				  },
 				}),
+				*/
 			],
 
 			title: '30Days Template',
