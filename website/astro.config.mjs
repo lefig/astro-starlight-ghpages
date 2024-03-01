@@ -8,13 +8,27 @@ export default defineConfig({
 	// Added Configuration for 
 	// Deployment to GitHub Pages
 	site: 'https://30DaysOf.github.io',
-	base: '/astro-starlight-ghpages/',
+	base: '/astro-starlight-ghpages',
 
 	integrations: [
 		starlight({
 
 			// Add plugins
-			plugins: [starlightBlog()],
+			plugins: [
+				starlightBlog({
+				  title: "Blog",
+				  postCount: 7,
+				  recentPostCount: 1,
+				  authors: {
+					nitya: {
+					  name: "Nitya Narasimhan, PhD",
+					  picture: "https://github.com/nitya.png",
+					  url: "https://github.com/nitya",
+					  title: "AI, Art & Advocacy @Microsoft",
+					}
+				  },
+				}),
+			],
 
 			title: '30Days Template',
 			social: {
