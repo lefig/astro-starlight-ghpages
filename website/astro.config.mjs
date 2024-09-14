@@ -7,7 +7,7 @@ export default defineConfig({
 
 	// Added Configuration for 
 	// Deployment to GitHub Pages
-	site: 'https://30DaysOf.github.io',
+	site: 'https://lefig.github.io',
 	base: '/astro-starlight-ghpages',
 
 	integrations: [
